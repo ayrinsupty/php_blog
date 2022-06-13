@@ -2,7 +2,7 @@
 <?php include 'inc/sidebar.php';?>
 <?php
     if(!isset($_GET['catid']) || $_GET['catid'] == NULL){
-            echo "<script> window.location='catlist.php; </script>";
+            echo "<script> window.location='catlist.php'; </script>";
     } else {
         $id = $_GET['catid'];
     }

@@ -11,18 +11,33 @@
                     </ul>
                 </li>
                 
-                    <li><a class="menuitem">Update Pages</a>
+                <li>
+                    <a class="menuitem">Pages</a>
                     <ul class="submenu">
-                        <li><a>About Us</a></li>
-                        <li><a>Contact Us</a></li>
+                        <li>
+                            <a href="addpage.php">Add New Page</a>
+                        </li>
+                <?php
+                    $query = "select * from tbl_page";
+                    $pages = $db->select($query);
+                    if($pages){
+                        while($result = $pages->fetch_assoc()){
+                ?>
+                <li>
+                    <a href="page.php?pageid=<?php echo $result['id']; ?>"><?php echo $result['name']; ?></a>
+                </li>
+                <?php } } ?>
                     </ul>
                 </li>
-                <li><a class="menuitem">Category Option</a>
+
+                <li>
+                    <a class="menuitem">Category Option</a>
                     <ul class="submenu">
                         <li><a href="addcat.php">Add Category</a> </li>
                         <li><a href="catlist.php">Category List</a> </li>
                     </ul>
                 </li>
+
                 <li><a class="menuitem">Post Option</a>
                     <ul class="submenu">
                         <li><a href="addpost.php">Add Post</a> </li>
