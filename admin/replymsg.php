@@ -33,9 +33,7 @@
                 $query = "select * from tbl_contact where id = '$id'";
                 $msg = $db->select($query);
                 if ($msg) {
-                    $i = 0;
                     while($result = $msg->fetch_assoc()){
-                        $i++;
             ?>
             <table class="form">      
                 <tr>
