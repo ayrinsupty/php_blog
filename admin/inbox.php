@@ -59,7 +59,34 @@
     </div>
 
     <div class="box round first grid">
-        <h2>Seen</h2>
+        <h2>Seen Message</h2>
+        <?php
+            if(isset($_GET['delid'])){
+                $delid = $_GET['delid'];
+                $delquery = "delete from tbl_contact where id = $delid";
+                $deldata = $db -> delete($delquery);
+                if($deldata){
+                    echo "<span class='success'>Message Deleted Successfully.</span>";
+                } else {
+                    echo "<span class='error'>Message Not Deleted!</span>";
+                }
+            }
+        ?>
+        <?php
+            if(isset($_GET['unseenid'])){
+                $unseenid = $_GET['unseenid'];
+                $query = "UPDATE tbl_contact
+                SET
+                status   = '0'
+                WHERE id = '$unseenid'";
+                $updated_row = $db->update($query);
+                if($updated_row){
+                    echo "<span class='success'>Message sent to Inbox!</span>";
+                } else {
+                    echo "<span class='error'>Something went wrong!</span>";
+                }
+            }
+        ?>
         <div class="block">        
         <table class="data display datatable" id="example">
             <thead>
@@ -88,7 +115,9 @@
                     <td><?php echo $fm->textShorten($result['body'], 30); ?></td>
                     <td><?php echo $fm->formatDate($result['date']); ?></td>
                     <td>
-                        <a onclick="return confirm('Are you sure to Delete?');" href="?delid=<?php echo $result['id']; ?>">Delete</a>
+                        <a href="viewmsg.php?msgid=<?php echo $result['id']; ?>">View</a>  || 
+                        <a onclick="return confirm('Are you sure to Delete?');" href="?delid=<?php echo $result['id']; ?>">Delete</a> ||
+                        <a onclick="return confirm('Are you sure to send this message into inbox?');" href="?unseenid=<?php echo $result['id']; ?>">Unseen</a>
                     </td>
                 </tr>
                 <?php } } ?>
