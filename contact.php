@@ -14,20 +14,27 @@
 		$body  = mysqli_real_escape_string($db->link, $body);
 
 		$error = "";
+
 		if(empty($fname)){
-			$error = "Insert First Name!";
-		} elseif(!filter_var($fname, FILTER_SANITIZE_SPECIAL_CHARS)){
-			$error = "Invalid first name!";
+			$error = "Enter Your Firstname!";
 		} elseif(empty($lname)){
-			$error = "Insert last Name!";
+			$error = "Enter Your Lastname!";
 		} elseif(empty($email)){
-			$error = "Insert Email Address!";
+			$error = "Please Enter a Valid Email Address!";
 		} elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			$error = "Invalid Email Address!";
 		} elseif(empty($body)){
-			$error = "Insert Your Message!";
-		} else {
-			$msg = "Okay!";
+			$error = "Enter Your Message!";
+		} 
+		
+		else {
+			$query = "INSERT INTO tbl_contact(firstname, lastname, email, body) VALUES('$fname', '$lname', '$email', '$body')";
+			$inserted_rows = $db->insert($query);
+			if ($inserted_rows) {
+				$msg = "Message Sent Successfully!";
+			} else {
+				$error = "Message Not Sent!";
+			}
 		}
 	}
 ?>
@@ -46,13 +53,13 @@
 		<form action="" method="post">
 			<table>
 			<tr>
-				<td>Your First Name:</td>
+				<td>First Name:</td>
 				<td>
 				<input type="text" name="firstname" placeholder="Enter first Name"/>
 				</td>
 			</tr>
 			<tr>
-				<td>Your Last Name:</td>
+				<td>Last Name:</td>
 				<td>
 				<input type="text" name="lastname" placeholder="Enter Last Name"/>
 				</td>
