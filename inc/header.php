@@ -34,7 +34,19 @@
 
 	<meta name="language" content="English">
 	<meta name="description" content="It is a website about education">
-	<meta name="keywords" content="blog,cms blog">
+	<?php
+		if(isset($_GET['id'])){
+			$keywordid = $_GET['id'];
+			$query = "select * from tbl_post where id = '$keywordid'";
+			$keywords = $db->select($query);
+			if($keywords){
+				while($result = $keywords->fetch_assoc()){ ?>
+				<meta name="keywords" content="<?php echo $result['tags'];?>">
+	
+	<?php } } } else { ?>
+		<meta name="keywords" content="<?php echo KEYWORDS;?>">
+	<?php } ?>
+
 	<meta name="author" content="Delowar">
 	<link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.css">	
 	<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
