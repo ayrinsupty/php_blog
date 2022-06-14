@@ -42,7 +42,7 @@
                     if ($inserted_rows) {
                         echo "<span class='success'>Data Inserted Successfully. </span>";
                     } else {
-                         echo "<span class='error'>Data Not Inserted !</span>";
+                        echo "<span class='error'>Data Not Inserted !</span>";
                     }
                 }
 
