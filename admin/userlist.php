@@ -58,7 +58,7 @@
                         ?>
                     </td>
 
-                    <td><a href="viewuser.php?catid=<?php echo $result['id'];?>">
+                    <td><a href="viewuser.php?userid=<?php echo $result['id'];?>">
                     View</a> || <a onclick="return confirm('Are you sure to Delete?');" 
                     href="?deluser=<?php echo $result['id'];?>">
                     Delete</a></td>
