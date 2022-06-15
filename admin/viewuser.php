@@ -65,7 +65,17 @@
                         <label>Role</label>
                     </td>
                     <td>
-                        <input type="text" value="<?php echo $result['role']; ?>"/>
+                        <?php 
+                            if($result['role'] == '0'){
+                                echo "Admin";
+                            } elseif($result['role'] == '1'){
+                                echo "Author";
+                            } elseif($result['role'] == '2'){
+                                echo "Editor";
+                            } else{
+                                echo "Role Not found!";
+                            }
+                        ?> 
                     </td>
                 </tr>    
                   
