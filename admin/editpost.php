@@ -9,7 +9,7 @@
 ?>
 <div class="grid_10">
     <div class="box round first grid">
-    <h2>Upload Post</h2>
+    <h2>Update Post</h2>
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $title  = mysqli_real_escape_string($db->link, $_POST['title']);
