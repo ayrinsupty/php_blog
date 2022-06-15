@@ -99,8 +99,10 @@
                             echo "(0)";
                          }
                     ?>
-                </span></a></li>
-                <li class="ic-charts"><a href="postlist.php"><span>Visit Website</span></a></li>
+                    </span></a>
+                </li>
+                <li class="ic-charts"><a href="adduser.php"><span>Add User</span></a></li>
+                <li class="ic-charts"><a href="userlist.php"><span>User List</span></a></li>
             </ul>
         </div>
         <div class="clear">
