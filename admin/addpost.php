@@ -1,7 +1,6 @@
 ﻿<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
 <div class="grid_10">
-
     <div class="box round first grid">
         <h2>Add New Post</h2>
 
@@ -12,6 +11,7 @@
 				$body   = mysqli_real_escape_string($db->link, $_POST['body']);
 				$tags   = mysqli_real_escape_string($db->link, $_POST['tags']);
                 $author = mysqli_real_escape_string($db->link, $_POST['author']);
+                $userid = mysqli_real_escape_string($db->link, $_POST['userid']);
 
                 $permited  = array('jpg', 'jpeg', 'png', 'gif');
                 $file_name = $_FILES['image']['name'];
@@ -37,7 +37,7 @@
                 
                 else {
                     move_uploaded_file($file_temp, $uploaded_image);
-                    $query = "INSERT INTO tbl_post(cat, title, body, image, author, tags) VALUES('$cat', '$title', '$body', '$uploaded_image', '$author', '$tags')";
+                    $query = "INSERT INTO tbl_post(cat, title, body, image, author, tags, userid) VALUES('$cat', '$title', '$body', '$uploaded_image', '$author', '$tags', '$userid')";
                     $inserted_rows = $db->insert($query);
                     if ($inserted_rows) {
                         echo "<span class='success'>Data Inserted Successfully. </span>";
@@ -109,7 +109,10 @@
                         <label>Author</label>
                     </td>
                     <td>
-                        <input type="text" name="author" value="<?php echo Session::get('username'); ?>" class="medium" />
+                        <input type="text" name="author" value="<?php echo Session::get('username'); ?>" 
+                        class="medium" />
+                        <input type="hidden" name="userid" value="<?php echo Session::get('userId'); ?>" 
+                        class="medium" />
                     </td>
                 </tr>
                 <tr>
