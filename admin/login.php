@@ -58,6 +58,9 @@
 			</div>
 		</form><!-- form -->
 		<div class="button">
+			<a href="forgetpass.php">Forgot Password</a>
+		</div><!-- button -->
+		<div class="button">
 			<a href="#"></a>
 		</div><!-- button -->
 	</section><!-- content -->
