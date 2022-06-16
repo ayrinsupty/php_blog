@@ -1,14 +1,14 @@
 <div class="footersection templete clear">
-	  <div class="footermenu clear">
+	<div class="footermenu clear">
 		<ul>
 			<li><a href="#">Home</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Contact</a></li>
 			<li><a href="#">Privacy</a></li>
 		</ul>
-	  </div>
-	  <?php
-		$query = "select * from tbl_footer where id='1'";
+	</div>
+	<?php
+		$query = "select * from tbl_footer where id = '1'";
 		$copyright = $db->select($query);
 		if($copyright){
 			while($result = $copyright->fetch_assoc()){
@@ -22,7 +22,7 @@
 
 <div class="fixedicon clear">
 <?php
-            $query = "select * from tbl_social where id='1'";
+            $query = "select * from tbl_social where id = '1'";
             $socialmedia = $db->select($query);
             if($socialmedia){
                 while($result = $socialmedia->fetch_assoc()){

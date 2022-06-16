@@ -56,12 +56,19 @@
         <div class="grid_12 header-repeat">
             <div id="branding">
                 <div class="floatleft logo">
-                    <img src="img/livelogo.png" alt="Logo" />
+                <?php
+					$query = "select * from title_slogan where id='1'";
+					$blog_title = $db->select($query);
+					if($blog_title){
+						while($result = $blog_title->fetch_assoc()){
+				?>
+                    <img src="<?php echo $result['logo']; ?>" alt="Logo" />
 				</div>
 				<div class="floatleft middle">
-					<h1>Training with live project</h1>
-					<p>www.trainingwithliveproject.com</p>
+					<h1><?php echo $result['title']; ?></h1>
+					<p><?php echo $result['slogan']; ?></p>
 				</div>
+                <?php } } ?>
                 <div class="floatright">
                     <div class="floatleft">
                         <img src="img/img-profile.jpg" alt="Profile Pic" /></div>

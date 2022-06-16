@@ -123,7 +123,7 @@
             </div>
             
             <div class="rightside">
-                <img src="<?php echo $result['logo'];?>" alt="Logo">
+                <img src="<?php echo $result['logo']; ?>" alt="logo">
             </div>
         </div>
         <?php } } ?>
