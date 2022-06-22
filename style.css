@@ -175,8 +175,6 @@ margin:200px 0;
 .item:hover .overlay{top:0}
 
 
-
-.slidersection {}
 .contentsection {
   background: #ffffff none repeat scroll 0 0;
   border: 1px solid #ca932f;
@@ -248,7 +246,7 @@ margin:200px 0;
   display: block;
   font-size: 200px;
 }
-.relatedpost{}
+
 .relatedpost h2 {
   background: #e6af4b none repeat scroll 0 0;
   border-bottom: 2px solid #b7801c !important;
@@ -370,7 +368,7 @@ margin:200px 0;
   padding: 3px;
   width: 55px;
 }
-.popular p{}
+
 .footersection{height:90px;background:#B7801C;text-align:center}
 .footermenu {
   margin-top: 25px;
@@ -383,7 +381,7 @@ margin:200px 0;
   font-size: 18px;
   margin-right: 5px;
 }
-.footersection p{}
+
 
 .fixedicon {
   left: 0;
